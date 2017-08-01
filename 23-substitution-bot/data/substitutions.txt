@@ -1,0 +1,21 @@
+[NAME]: Jon Arbuckle
+[NAME]: Jim Davis
+[NAME]: Garfield
+[NAME]: Nermyl
+[NAME]: Odie
+[TECHNIQUE]: open palm slam
+[TECHNIQUE]: finger of death
+[TECHNIQUE]: karate shoot
+[TECHNIQUE]: juggle
+[OBJECT][THING][JOB]: nerd
+[OBJECT][THING]: table
+[OBJECT][THING]: apple
+[THING]: monster
+[TITLE]: Shrek
+[TITLE]: Shrek 2
+[TITLE]: Chronicles of Riddick
+[JOB]: racecar
+[JOB]: coder
+[JOB]: hell devil
+[CONCEPT]: the immortal science of marxist-leninism
+[CONCEPT]: spacetime
