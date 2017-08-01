@@ -1,0 +1,1 @@
+This makes sure git will track this folder
