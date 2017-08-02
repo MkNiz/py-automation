@@ -1,45 +1,29 @@
-import os, zipfile, shutil
+import os, shutil
+import collector
 
 cwd = os.getcwd()
 
-print("- [ Extension Collector ] -")
-ext = ''
+ignore_dirs = ["__pycache__", "__MACOSX"]
 
-while((len(ext) > 4 or len(ext) < 1) or ('.' in ext)):
-    ext = input("Please input an extension (1-4 characters, no dot):\n~> ")
-print('')
+print("- [ Extension Collector ] -")
+ext = collector.get_ext()
+dotext = '.' + ext
+
+ignore_dirs.append(ext)
 
 if not os.path.exists(ext):
     os.makedirs(ext)
     
 dest_dir = os.path.join(cwd, ext)
-    
-dotext = '.' + ext
 
 print("__________\n")
-for dir, _, files in os.walk(cwd):
-    if dir != dest_dir:
-        print("Checking directory:")
-        print(dir, "\n")
-        for f in files:
-            if f.endswith(dotext):
-                print("Found:", f, "\n")
-                f_path = os.path.join(dir, f)
-                shutil.copy(f_path, dest_dir)
-            elif f.endswith(".zip"):
-                z_path = os.path.join(dir, f)
-                z = zipfile.ZipFile(z_path)
-                for item in z.namelist():
-                    if item.endswith(dotext):
-                        print("In Archive:", z_path)
-                        print("Found:", item, "\n")
-                        z.extract(item, dest_dir)
-        print("__________\n")
+for dir, subdirs, files in os.walk(cwd):
+    subdirs[:] = [d for d in subdirs if d not in ignore_dirs]
+    collector.check_dir(dir, dest_dir, files, dotext)
 
 shutil.make_archive(ext, 'zip', dest_dir)
 
 print("Zip file '" + ext + ".zip' created.\n")
-    
 
             
             
