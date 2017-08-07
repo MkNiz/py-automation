@@ -1,5 +1,4 @@
 import bs4
-from pygame import display
 
 index = open('index.html')
 indexSoup = bs4.BeautifulSoup(index, "html.parser")
