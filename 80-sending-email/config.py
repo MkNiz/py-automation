@@ -1,0 +1,5 @@
+SMTP_SERVER = ""
+SMTP_PORT = 587
+EMAIL = ""
+PWD = ""
+TARGET_EMAIL = ""
